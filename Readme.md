@@ -7,10 +7,11 @@ There are code strategies:
    1. in this case we would use evolve .net to run db migragtions on start of app. The db structure would be kept in SQL files in solution. 
    2. https://www.entityframeworktutorial.net/efcore/create-model-for-existing-database-in-ef-core.aspx
    3. https://docs.microsoft.com/en-us/ef/core/cli/dotnet#dotnet-ef-dbcontext-scaffold
+3. code run migrations using code - todo test
+   1. https://stackoverflow.com/questions/70056665/run-ef-migrations-on-startup-in-asp-net-core-6-application
 
 
-
-# Code First:
+# Code First: EntityCore project
 ## EF core database setup and migrations:
 
 Docs: Ref https://docs.microsoft.com/en-us/ef/core/get-started/overview/first-app?tabs=netcore-cli
@@ -38,8 +39,25 @@ Above is to setup ef only first time, then on every update
 
 ---
 
-Query & save : 
-https://docs.microsoft.com/en-us/ef/core/
+# DB first details: EnitiyCoreDbFirst project
+## db migrations using sql scripts and evolve.net libe
+https://evolve-db.netlify.app/getting-started/lib/
+1. create a connection using Microsoft.Data.SqlClient.SqlConnection
+2. create database sql scripts in db/migrations folder and run the program.
+3. make sure in csproj file: so that all .sql files gets copied in build destination directory.
+```xml
+ <ItemGroup>
+    <Content Include="db\migrations\**\*.sql">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
 
-# DB first details
-## 
+````
+
+---
+---
+# Query & save : 
+Ok now we have tables in DB, lets CRUD & query data.
+https://docs.microsoft.com/en-us/ef/core/
+https://docs.microsoft.com/en-us/ef/core/get-started/overview/first-app?tabs=netcore-cli
+
