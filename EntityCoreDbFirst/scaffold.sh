@@ -1,0 +1,1 @@
+dotnet ef dbcontext scaffold "Data Source=ajitpi1;Persist Security Info=True;User ID=sa;Password=mypassword;Database=Blogging;TrustServerCertificate=True" Microsoft.EntityFrameworkCore.SqlServer -o Models
