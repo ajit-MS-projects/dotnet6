@@ -18,6 +18,11 @@ There are three strategies:
 # Code First: EntityCore project
 ## EF core database setup and migrations:
 
+Note: to run dotnet ef, EF package must be in path 
+```bash
+$Env:PATH += ";C:\Users\chahal\.dotnet\tools"
+```
+
 Docs: Ref https://docs.microsoft.com/en-us/ef/core/get-started/overview/first-app?tabs=netcore-cli
 ```bash
 dotnet add package Microsoft.EntityFrameworkCore.SqlServer
